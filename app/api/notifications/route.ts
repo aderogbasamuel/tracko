@@ -5,8 +5,6 @@ import { prisma } from "../../../lib/db";
 import { buildNotifications } from "../../../lib/notifications";
 import type { CreditOrder } from "../../../lib/credit";
 
-export const dynamic = "force-dynamic";
-
 export async function GET() {
   try {
     const orders = (await prisma.order.findMany({

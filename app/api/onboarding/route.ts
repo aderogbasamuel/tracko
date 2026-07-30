@@ -12,8 +12,6 @@ import {
   refreshOnboardingState,
 } from "../../../lib/bmoni-onboarding";
 
-export const dynamic = "force-dynamic";
-
 /** Live onboarding state for a trader, refreshed from BMONI on every read. */
 export async function GET(req: NextRequest) {
   const traderId = req.nextUrl.searchParams.get("traderId");
