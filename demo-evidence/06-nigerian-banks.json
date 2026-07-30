@@ -1,0 +1,699 @@
+{
+  "name": "06-nigerian-banks",
+  "capturedAt": "2026-07-30T18:19:48.160Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts/nigerian-banks",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "banks": [
+        {
+          "bankName": "9 Payment Solutions Bank",
+          "bankCode": "120001"
+        },
+        {
+          "bankName": "Abbey Mortgage Bank",
+          "bankCode": "070010"
+        },
+        {
+          "bankName": "Access Bank",
+          "bankCode": "000014"
+        },
+        {
+          "bankName": "Accessmobile",
+          "bankCode": "100013"
+        },
+        {
+          "bankName": "Accion Microfinance Bank",
+          "bankCode": "090134"
+        },
+        {
+          "bankName": "Addosser Microfinance Bank",
+          "bankCode": "090160"
+        },
+        {
+          "bankName": "Ag Mortgage Bank Plc",
+          "bankCode": "100028"
+        },
+        {
+          "bankName": "Al-Barkah Microfinance Bank",
+          "bankCode": "090133"
+        },
+        {
+          "bankName": "Allworkers Microfinance Bank",
+          "bankCode": "090131"
+        },
+        {
+          "bankName": "Alpha Kapital Microfinance Bank",
+          "bankCode": "090169"
+        },
+        {
+          "bankName": "Amju Microfinance Bank",
+          "bankCode": "090180"
+        },
+        {
+          "bankName": "Amml Microfinance Bank",
+          "bankCode": "090116"
+        },
+        {
+          "bankName": "Apeks Microfinance Bank",
+          "bankCode": "090143"
+        },
+        {
+          "bankName": "Asosavings Bank",
+          "bankCode": "090001"
+        },
+        {
+          "bankName": "Astrapolis Microfinance Bank",
+          "bankCode": "090172"
+        },
+        {
+          "bankName": "Bc Kash Microfinance Bank",
+          "bankCode": "090127"
+        },
+        {
+          "bankName": "Beamer (Gabsyn) Microfinance Bank",
+          "bankCode": "090591"
+        },
+        {
+          "bankName": "Boctrust Microfinance Bank",
+          "bankCode": "090117"
+        },
+        {
+          "bankName": "Bosak Microfinance Bank",
+          "bankCode": "090176"
+        },
+        {
+          "bankName": "Bowen Microfinance Bank",
+          "bankCode": "090148"
+        },
+        {
+          "bankName": "Brent Generation Mortgage Bank",
+          "bankCode": "070015"
+        },
+        {
+          "bankName": "Caleb Bank",
+          "bankCode": "343772"
+        },
+        {
+          "bankName": "Carbon Microfinance Bank (One Finance)",
+          "bankCode": "100026"
+        },
+        {
+          "bankName": "Cellulant",
+          "bankCode": "100005"
+        },
+        {
+          "bankName": "Cemcs Microfinance Bank",
+          "bankCode": "090154"
+        },
+        {
+          "bankName": "Chikum Microfinance Bank",
+          "bankCode": "090141"
+        },
+        {
+          "bankName": "Citibank Nigeria",
+          "bankCode": "000009"
+        },
+        {
+          "bankName": "Cit Microfinance Bank",
+          "bankCode": "090144"
+        },
+        {
+          "bankName": "Consumer Microfinance Bank",
+          "bankCode": "090130"
+        },
+        {
+          "bankName": "Contec Global",
+          "bankCode": "100032"
+        },
+        {
+          "bankName": "Convenant Microfinance Bank",
+          "bankCode": "070006"
+        },
+        {
+          "bankName": "Coronation Bank",
+          "bankCode": "060001"
+        },
+        {
+          "bankName": "Credit Afrique Microfinance Bank",
+          "bankCode": "090159"
+        },
+        {
+          "bankName": "Daylight Microfinance Bank",
+          "bankCode": "090167"
+        },
+        {
+          "bankName": "Eartholeum",
+          "bankCode": "100021"
+        },
+        {
+          "bankName": "E-Barcs Microfinance Bank",
+          "bankCode": "090156"
+        },
+        {
+          "bankName": "Ecobank Nigeria",
+          "bankCode": "000010"
+        },
+        {
+          "bankName": "Ecobank Xpress Account",
+          "bankCode": "100008"
+        },
+        {
+          "bankName": "Ekondo Microfinance Bank",
+          "bankCode": "090097"
+        },
+        {
+          "bankName": "Empire Microfinance Bank",
+          "bankCode": "090114"
+        },
+        {
+          "bankName": "Eso-E Microfinance Bank",
+          "bankCode": "090166"
+        },
+        {
+          "bankName": "Etranzact",
+          "bankCode": "100006"
+        },
+        {
+          "bankName": "Eyowo Microfinance Bank",
+          "bankCode": "090328"
+        },
+        {
+          "bankName": "Fairmoney Mfb",
+          "bankCode": "090551"
+        },
+        {
+          "bankName": "Fast Microfinance Bank",
+          "bankCode": "090179"
+        },
+        {
+          "bankName": "Fbnmobile",
+          "bankCode": "100014"
+        },
+        {
+          "bankName": "Fbnquest Bank",
+          "bankCode": "060002"
+        },
+        {
+          "bankName": "Fcmb Mobile",
+          "bankCode": "100031"
+        },
+        {
+          "bankName": "Fets Microfinance Bank",
+          "bankCode": "100001"
+        },
+        {
+          "bankName": "Ffs Microfinance Bank",
+          "bankCode": "090153"
+        },
+        {
+          "bankName": "Fidelity Bank",
+          "bankCode": "000007"
+        },
+        {
+          "bankName": "Fidelity Mobile",
+          "bankCode": "100019"
+        },
+        {
+          "bankName": "Fidfund Microfinance Bank",
+          "bankCode": "090126"
+        },
+        {
+          "bankName": "Finatrust Microfinance Bank",
+          "bankCode": "090111"
+        },
+        {
+          "bankName": "Firstbank Of Nigeria",
+          "bankCode": "000016"
+        },
+        {
+          "bankName": "First City Monument Bank",
+          "bankCode": "000003"
+        },
+        {
+          "bankName": "First Generation Mortgage Bank",
+          "bankCode": "070014"
+        },
+        {
+          "bankName": "First Multiple Microfinance Bank",
+          "bankCode": "090163"
+        },
+        {
+          "bankName": "First Royal Microfinance Bank",
+          "bankCode": "090164"
+        },
+        {
+          "bankName": "Flutterwave Technology Solutions Limited",
+          "bankCode": "110002"
+        },
+        {
+          "bankName": "Fnb Mortgages Bank",
+          "bankCode": "090107"
+        },
+        {
+          "bankName": "Fortis Microfinance Bank",
+          "bankCode": "070002"
+        },
+        {
+          "bankName": "Fortismobile",
+          "bankCode": "100016"
+        },
+        {
+          "bankName": "Fsdh",
+          "bankCode": "400001"
+        },
+        {
+          "bankName": "Fullrange Microfinance Bank",
+          "bankCode": "090145"
+        },
+        {
+          "bankName": "Futo Microfinance Bank",
+          "bankCode": "090158"
+        },
+        {
+          "bankName": "Gashua Microfinance Bank",
+          "bankCode": "090168"
+        },
+        {
+          "bankName": "Gateway Mortgage Bank",
+          "bankCode": "070009"
+        },
+        {
+          "bankName": "Globus Bank",
+          "bankCode": "000027"
+        },
+        {
+          "bankName": "Gowans Microfinance Bank",
+          "bankCode": "090122"
+        },
+        {
+          "bankName": "Greenbank Microfinance Bank",
+          "bankCode": "090178"
+        },
+        {
+          "bankName": "Gtmobile",
+          "bankCode": "100009"
+        },
+        {
+          "bankName": "Guaranty Trust Bank",
+          "bankCode": "000013"
+        },
+        {
+          "bankName": "Hackman Microfinance Bank",
+          "bankCode": "090147"
+        },
+        {
+          "bankName": "Haggai Mortgage Bank",
+          "bankCode": "070017"
+        },
+        {
+          "bankName": "Hasal Microfinance Bank",
+          "bankCode": "090121"
+        },
+        {
+          "bankName": "Hedonmark",
+          "bankCode": "100017"
+        },
+        {
+          "bankName": "Heritage Bank",
+          "bankCode": "000020"
+        },
+        {
+          "bankName": "Ibile Microfinance Bank",
+          "bankCode": "090118"
+        },
+        {
+          "bankName": "Imperial Homes Mortgage Bank",
+          "bankCode": "100024"
+        },
+        {
+          "bankName": "Infinity Microfinance Bank",
+          "bankCode": "090157"
+        },
+        {
+          "bankName": "Infinity Trust Generation Mortgage Bank",
+          "bankCode": "070016"
+        },
+        {
+          "bankName": "Innovectives Kesh",
+          "bankCode": "100029"
+        },
+        {
+          "bankName": "Intellifin",
+          "bankCode": "100027"
+        },
+        {
+          "bankName": "Irl Microfinance Bank",
+          "bankCode": "090149"
+        },
+        {
+          "bankName": "Jaiz Bank",
+          "bankCode": "000006"
+        },
+        {
+          "bankName": "Jubileelife Bank",
+          "bankCode": "090003"
+        },
+        {
+          "bankName": "Kegow",
+          "bankCode": "100015"
+        },
+        {
+          "bankName": "Keystone Bank",
+          "bankCode": "000002"
+        },
+        {
+          "bankName": "Kuda Microfinance Bank",
+          "bankCode": "090267"
+        },
+        {
+          "bankName": "Lafayette Microfinance Bank",
+          "bankCode": "090155"
+        },
+        {
+          "bankName": "Lapo Microfinance Bank",
+          "bankCode": "090177"
+        },
+        {
+          "bankName": "Lbic Mortgage Bank",
+          "bankCode": "070012"
+        },
+        {
+          "bankName": "Mainstreet Microfinance Bank",
+          "bankCode": "090171"
+        },
+        {
+          "bankName": "Malachy Microfinance Bank",
+          "bankCode": "090174"
+        },
+        {
+          "bankName": "Microcred Microfinance Bank",
+          "bankCode": "090136"
+        },
+        {
+          "bankName": "Mkudi",
+          "bankCode": "100011"
+        },
+        {
+          "bankName": "Momo Psb",
+          "bankCode": "120003"
+        },
+        {
+          "bankName": "Moneybox",
+          "bankCode": "100020"
+        },
+        {
+          "bankName": "Moneytrust Microfinance Bank",
+          "bankCode": "090129"
+        },
+        {
+          "bankName": "Moniepoint Microfinance Bank",
+          "bankCode": "090405"
+        },
+        {
+          "bankName": "Mutual Trust Microfinance Bank",
+          "bankCode": "090151"
+        },
+        {
+          "bankName": "Nargata Microfinance Bank",
+          "bankCode": "090152"
+        },
+        {
+          "bankName": "Ndiorah Microfinance Bank",
+          "bankCode": "090128"
+        },
+        {
+          "bankName": "New Prudential Bank",
+          "bankCode": "090108"
+        },
+        {
+          "bankName": "Nip Virtual Bank",
+          "bankCode": "999999"
+        },
+        {
+          "bankName": "Nova Merchant Bank",
+          "bankCode": "060003"
+        },
+        {
+          "bankName": "Npf Microfinance Bank",
+          "bankCode": "070001"
+        },
+        {
+          "bankName": "Ohafia Microfinance Bank",
+          "bankCode": "090119"
+        },
+        {
+          "bankName": "Okpoga Microfinance Bank",
+          "bankCode": "090161"
+        },
+        {
+          "bankName": "Omoluabi Mortgage Bank",
+          "bankCode": "070007"
+        },
+        {
+          "bankName": "Opay",
+          "bankCode": "100004"
+        },
+        {
+          "bankName": "Paga",
+          "bankCode": "100002"
+        },
+        {
+          "bankName": "Page Microfinance Bank",
+          "bankCode": "070008"
+        },
+        {
+          "bankName": "Palmpay",
+          "bankCode": "100033"
+        },
+        {
+          "bankName": "Parkway-Readycash Microfinance Bank",
+          "bankCode": "100003"
+        },
+        {
+          "bankName": "Payattitude Online",
+          "bankCode": "110001"
+        },
+        {
+          "bankName": "Pecan Trust Microfinance Bank",
+          "bankCode": "090137"
+        },
+        {
+          "bankName": "Personal Trust Microfinance Bank",
+          "bankCode": "090135"
+        },
+        {
+          "bankName": "Petra Microfinance Bank",
+          "bankCode": "090165"
+        },
+        {
+          "bankName": "Platinum Mortgage Bank",
+          "bankCode": "070013"
+        },
+        {
+          "bankName": "Polaris Bank",
+          "bankCode": "000008"
+        },
+        {
+          "bankName": "Prallex Bank",
+          "bankCode": "090004"
+        },
+        {
+          "bankName": "Premium Trust Bank",
+          "bankCode": "000031"
+        },
+        {
+          "bankName": "Providus Bank",
+          "bankCode": "000023"
+        },
+        {
+          "bankName": "Rahama Microfinance Bank",
+          "bankCode": "090170"
+        },
+        {
+          "bankName": "Rand Merchant Bank",
+          "bankCode": "000024"
+        },
+        {
+          "bankName": "Refuge Mortgage Bank",
+          "bankCode": "070011"
+        },
+        {
+          "bankName": "Regent Microfinance Bank",
+          "bankCode": "090125"
+        },
+        {
+          "bankName": "Reliance Microfinance Bank",
+          "bankCode": "090173"
+        },
+        {
+          "bankName": "Renmoney Mfb",
+          "bankCode": "090198"
+        },
+        {
+          "bankName": "Richway Microfinance Bank",
+          "bankCode": "090132"
+        },
+        {
+          "bankName": "Rolez Microfinance Bank",
+          "bankCode": "50515"
+        },
+        {
+          "bankName": "Royal Exchange Microfinance Bank",
+          "bankCode": "090138"
+        },
+        {
+          "bankName": "Rubies Microfinance Bank",
+          "bankCode": "090175"
+        },
+        {
+          "bankName": "Sagamu Microfinance Bank",
+          "bankCode": "090140"
+        },
+        {
+          "bankName": "Savetrust Bank",
+          "bankCode": "100007"
+        },
+        {
+          "bankName": "Seed Capital Microfinance Bank",
+          "bankCode": "090112"
+        },
+        {
+          "bankName": "Smartcash Psb",
+          "bankCode": "120004"
+        },
+        {
+          "bankName": "Sparkle Microfinance Bank",
+          "bankCode": "090325"
+        },
+        {
+          "bankName": "Stanbic Ibtc Bank",
+          "bankCode": "000012"
+        },
+        {
+          "bankName": "Stanbicmobilemoney",
+          "bankCode": "090006"
+        },
+        {
+          "bankName": "Standard Chartered Bank",
+          "bankCode": "000021"
+        },
+        {
+          "bankName": "Stanford Microfinance Bank",
+          "bankCode": "090162"
+        },
+        {
+          "bankName": "Sterling Bank",
+          "bankCode": "000001"
+        },
+        {
+          "bankName": "Sterling Mobile (Gomoney)",
+          "bankCode": "100022"
+        },
+        {
+          "bankName": "Suntrust Bank",
+          "bankCode": "000022"
+        },
+        {
+          "bankName": "Tagpay",
+          "bankCode": "100023"
+        },
+        {
+          "bankName": "Taj Bank",
+          "bankCode": "000026"
+        },
+        {
+          "bankName": "Tcf Microfinance Bank",
+          "bankCode": "090115"
+        },
+        {
+          "bankName": "Teasymobile",
+          "bankCode": "100010"
+        },
+        {
+          "bankName": "Titan-Paystack",
+          "bankCode": "100039"
+        },
+        {
+          "bankName": "Titan Trust Bank",
+          "bankCode": "000025"
+        },
+        {
+          "bankName": "Trident Microfinance Bank",
+          "bankCode": "090146"
+        },
+        {
+          "bankName": "Trustbond Bank",
+          "bankCode": "090005"
+        },
+        {
+          "bankName": "Union Bank",
+          "bankCode": "000018"
+        },
+        {
+          "bankName": "United Bank For Africa",
+          "bankCode": "000004"
+        },
+        {
+          "bankName": "Unity Bank",
+          "bankCode": "000011"
+        },
+        {
+          "bankName": "Verite Microfinance Bank",
+          "bankCode": "090123"
+        },
+        {
+          "bankName": "Vfd Microfinance Bank",
+          "bankCode": "090110"
+        },
+        {
+          "bankName": "Virtue Microfinance Bank",
+          "bankCode": "090150"
+        },
+        {
+          "bankName": "Visa Microfinance Bank",
+          "bankCode": "090139"
+        },
+        {
+          "bankName": "Vtnetworks",
+          "bankCode": "100012"
+        },
+        {
+          "bankName": "Wema Bank",
+          "bankCode": "000017"
+        },
+        {
+          "bankName": "Wetland Microfinance Bank",
+          "bankCode": "090120"
+        },
+        {
+          "bankName": "Xslnce Microfinance Bank",
+          "bankCode": "090124"
+        },
+        {
+          "bankName": "Yes Microfinance Bank",
+          "bankCode": "090142"
+        },
+        {
+          "bankName": "Zenith Bank",
+          "bankCode": "000015"
+        },
+        {
+          "bankName": "Zenithmobile",
+          "bankCode": "100018"
+        },
+        {
+          "bankName": "Zinternet - Kongapay",
+          "bankCode": "100025"
+        }
+      ]
+    }
+  }
+}

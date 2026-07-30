@@ -2,40 +2,33 @@ export type AuthUser = {
   id: string;
   name: string;
   email: string;
+  phone?: string;
+  /** Present once BMONI onboarding has been started for this trader. */
+  bmoniUserId?: string | null;
 };
 
 export type AuthResponse = {
   user: AuthUser;
 };
 
-export async function login(email: string, password: string): Promise<AuthResponse> {
-  const res = await fetch("/api/auth/login", {
+async function post(path: string, body: unknown): Promise<AuthResponse> {
+  const res = await fetch(path, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(body),
   });
 
-  const payload = await res.json();
-  if (!res.ok) {
-    throw new Error(payload?.error ?? "Login failed");
-  }
-
+  const payload = await res.json().catch(() => null);
+  if (!res.ok) throw new Error(payload?.error ?? "Something went wrong. Try again.");
   return payload;
 }
 
-export async function signup(name: string, email: string, password: string): Promise<AuthResponse> {
-  const res = await fetch("/api/auth/signup", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, password }),
-  });
+export function login(email: string, password: string) {
+  return post("/api/auth/login", { email, password });
+}
 
-  const payload = await res.json();
-  if (!res.ok) {
-    throw new Error(payload?.error ?? "Signup failed");
-  }
-
-  return payload;
+export function signup(name: string, email: string, password: string, phone: string) {
+  return post("/api/auth/signup", { name, email, password, phone });
 }
 
 export function getStoredUser(): AuthUser | null {

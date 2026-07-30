@@ -7,14 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "tsx lib/seed.ts"
+    "seed": "tsx lib/seed.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "capture-evidence": "node scripts/capture-evidence.mjs"
   },
   "dependencies": {
     "@iconify-icon/react": "^3.0.3",
     "@iconify/react": "^6.0.2",
     "next": "16.2.12",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "viem": "^2.55.10"
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0",

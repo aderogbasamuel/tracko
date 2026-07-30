@@ -1,0 +1,26 @@
+{
+  "name": "02-balances",
+  "capturedAt": "2026-07-30T18:19:46.694Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/smart-wallets/account/balances",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "smartAccountAddress": "0xD2c817a09130c8b596B05adE3DC276C6C9c89fC4",
+      "balances": [
+        {
+          "smartWalletId": "d5486925-8481-4164-8aff-951407c48047",
+          "currency": "NGN",
+          "balance": "10000",
+          "error": null
+        }
+      ]
+    }
+  }
+}

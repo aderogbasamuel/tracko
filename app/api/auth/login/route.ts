@@ -1,31 +1,39 @@
 import { NextResponse } from "next/server";
-import { readFile } from "fs/promises";
-import path from "path";
-
-const usersPath = path.join(process.cwd(), "data", "users.json");
-
-type UserRecord = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-};
+import { prisma } from "../../../../lib/db";
+import { verifyPassword } from "../../../../lib/crypto";
 
 export async function POST(request: Request) {
-  const body = await request.json();
-  const { email, password } = body;
+  try {
+    const { email, password } = await request.json();
 
-  if (!email || !password) {
-    return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
+    if (!email || !password) {
+      return NextResponse.json(
+        { error: "Email and password are required." },
+        { status: 400 }
+      );
+    }
+
+    const trader = await prisma.trader.findUnique({
+      where: { email: String(email).trim().toLowerCase() },
+    });
+
+    // One message for both cases: saying "no such email" tells an attacker
+    // which addresses are registered.
+    if (!trader || !verifyPassword(String(password), trader.passwordHash)) {
+      return NextResponse.json({ error: "Invalid email or password." }, { status: 401 });
+    }
+
+    return NextResponse.json({
+      user: {
+        id: trader.id,
+        name: trader.name,
+        email: trader.email,
+        phone: trader.phone,
+        bmoniUserId: trader.bmoniUserId,
+      },
+    });
+  } catch (err) {
+    console.error("login error:", err);
+    return NextResponse.json({ error: "Could not sign you in." }, { status: 500 });
   }
-
-  const contents = await readFile(usersPath, "utf8");
-  const users = JSON.parse(contents) as UserRecord[];
-  const user = users.find((item) => item.email.toLowerCase() === String(email).toLowerCase());
-
-  if (!user || user.password !== password) {
-    return NextResponse.json({ error: "Invalid email or password." }, { status: 401 });
-  }
-
-  return NextResponse.json({ user: { id: user.id, name: user.name, email: user.email } });
 }

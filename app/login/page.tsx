@@ -3,77 +3,88 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 import { login, storeUser } from "../../lib/auth";
+import AuthShell, { AuthField } from "../components/AuthShell";
+import ErrorNotice from "../components/ErrorNotice";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    setError(null);
+    setError("");
     setLoading(true);
 
     try {
       const result = await login(email, password);
       storeUser(result.user);
-      router.push("/");
+      // A trader without a BMONI wallet cannot be paid, so finish onboarding first.
+      router.push(result.user.bmoniUserId ? "/" : "/onboarding");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unable to login");
+      setError(err instanceof Error ? err.message : "Unable to sign in.");
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   return (
-    <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/30">
-        <h1 className="text-3xl font-bold text-slate-900 mb-1">Welcome back</h1>
-        <p className="text-sm text-slate-500 mb-6">Log in with your email and password to continue.</p>
+    <AuthShell title="Welcome back" subtitle="Sign in to see who owes you and what to chase today.">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <AuthField label="Email">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+            placeholder="you@example.com"
+            className="auth-input"
+          />
+        </AuthField>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <label className="block">
-            <span className="text-sm font-medium text-slate-700">Email</span>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#2adadd]"
-            />
-          </label>
-          <label className="block">
-            <span className="text-sm font-medium text-slate-700">Password</span>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#2adadd]"
-            />
-          </label>
+        <AuthField label="Password">
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+            className="auth-input"
+          />
+        </AuthField>
 
-          {error && <p className="text-sm text-red-500">{error}</p>}
+        <ErrorNotice message={error} />
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-2xl bg-[#2adadd] px-4 py-3 text-sm font-semibold text-white transition hover:brightness-105 disabled:opacity-70"
-          >
-            {loading ? "Signing in..." : "Sign in"}
-          </button>
-        </form>
+        <button
+          type="submit"
+          disabled={loading}
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-teal px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal/25 transition hover:bg-teal-mid active:scale-[0.99] disabled:opacity-60"
+        >
+          {loading ? (
+            <>
+              <Icon icon="ph:spinner-bold" width="16" height="16" className="animate-spin" />
+              Signing in...
+            </>
+          ) : (
+            <>
+              Sign in
+              <Icon icon="ph:arrow-right-bold" width="15" height="15" />
+            </>
+          )}
+        </button>
+      </form>
 
-        <p className="mt-6 text-sm text-slate-500">
-          Don’t have an account?{' '}
-          <Link href="/signup" className="font-semibold text-[#2adadd] hover:underline">
-            Sign up
-          </Link>
-        </p>
-      </div>
-    </main>
+      <p className="mt-6 text-sm text-text-muted">
+        New to Tracko?{" "}
+        <Link href="/signup" className="font-semibold text-teal hover:underline dark:text-cyan">
+          Create an account
+        </Link>
+      </p>
+    </AuthShell>
   );
 }

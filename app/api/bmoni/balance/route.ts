@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
-import { getTraderBalances } from "../../../../lib/bmoni";
+import { getNgnBalance, BmoniError } from "../../../../lib/bmoni";
 
 export async function GET() {
   try {
-    const data = await getTraderBalances();
-    return NextResponse.json(data);
-  } catch (err: any) {
+    // Returns the naira figure directly so callers don't each re-implement
+    // "find the NGN entry", which is where the old currency-code bug lived.
+    return NextResponse.json({ balance: await getNgnBalance(), currency: "NGN" });
+  } catch (err) {
+    if (err instanceof BmoniError) {
+      console.error("balance fetch error:", err.message);
+      return NextResponse.json({ error: err.message }, { status: err.status });
+    }
     console.error("balance fetch error:", err);
-    return NextResponse.json({ error: err.message || "Unknown error" }, { status: 500 });
+    return NextResponse.json({ error: "Could not load your BMONI balance." }, { status: 500 });
   }
 }

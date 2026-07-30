@@ -7,6 +7,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// A trader using Tracko, and their BMONI identity.
+///
+/// Replaces the previous data/users.json store, which held passwords in plain
+/// text — indefensible in anything touching money.
+model Trader {
+  id           String @id @default(cuid())
+  name         String
+  email        String @unique
+  phone        String
+  /// scrypt, salted per user. Never the password itself.
+  passwordHash String
+
+  // --- BMONI identity -----------------------------------------------------
+  bmoniUserId        String?
+  /// The end-user EVM address registered as the smart wallet owner.
+  ownerAddress       String?
+  /// The owner private key, AES-256-GCM encrypted at rest (see lib/crypto.ts).
+  /// A production deployment would hold this in a KMS/HSM, not the app database.
+  ownerKeyEncrypted  String?
+  smartWalletId      String?
+  smartWalletAddress String?
+
+  // --- Onboarding progress, mirrored from BMONI ---------------------------
+  kycStatus       String  @default("not_started")
+  kycApplicantId  String?
+  /// Sumsub rejection labels, so the trader is told what to fix.
+  kycRejectLabels String?
+  railStatus      String  @default("not_started")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Order {
   id            String    @id @default(cuid())
   customerName  String
@@ -18,4 +51,22 @@ model Order {
   createdAt     DateTime  @default(now())
   paidAt        DateTime?
   deliveredAt   DateTime?
+
+  // Credit book. `amountOutstanding` is deliberately NOT stored — it is derived
+  // as price - amountPaid in lib/credit.ts so it can never drift from reality.
+  isCredit   Boolean   @default(false)
+  dueDate    DateTime?
+  amountPaid Float     @default(0)
+
+  // Bank details shown to the customer, persisted so reopening the order after a
+  // refresh still shows the same account instead of re-requesting one.
+  vaBankName      String?
+  vaAccountNumber String?
+  vaAccountName   String?
+  vaIsPooled      Boolean   @default(false)
+  vaRequestedAt   DateTime?
+
+  // The BMONI transaction that settled this order. Stops one credit being
+  // claimed by two orders when several are for the same amount.
+  reconciledTxId String?
 }

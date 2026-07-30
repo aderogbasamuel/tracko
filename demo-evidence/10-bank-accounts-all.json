@@ -1,0 +1,39 @@
+{
+  "name": "10-bank-accounts-all",
+  "capturedAt": "2026-07-30T18:19:50.406Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "depositAccounts": {
+        "nigerianAccounts": [],
+        "activationAccounts": [
+          {
+            "id": "pooled-vba-1",
+            "accountName": "Bkey Limited",
+            "bankName": "9 Payment Service Bank",
+            "currency": "NGN",
+            "accountNumber": "6177463833",
+            "bankCode": "XXXXXXX",
+            "targetCurrency": "EUR"
+          }
+        ],
+        "europeanAccounts": [],
+        "usaAccounts": [],
+        "mexicanAccounts": []
+      },
+      "withdrawalAccounts": {
+        "nigerianAccounts": [],
+        "europeanAccounts": [],
+        "usaAccounts": []
+      }
+    }
+  }
+}

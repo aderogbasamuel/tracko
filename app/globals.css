@@ -1,34 +1,97 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Tailwind v4 defaults `dark:` to the prefers-color-scheme media query, which
+   ignores a class on <html>. This rebinds it to the .dark class so the in-app
+   theme toggle actually drives the variants. Without it every `dark:` utility
+   in this codebase is dead code. */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* ==========================================================================
+   Official Tracko palette — the single source of colour truth.
+   Registered with @theme so Tailwind generates bg-teal / text-ink / border-line
+   utilities from these, instead of the ad-hoc slate greys used previously.
+   ========================================================================== */
 @theme {
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+
+  --color-teal: #176c77;
+  --color-teal-deep: #0e3438;
+  --color-teal-mid: #14545c;
+  --color-cyan: #2adadd;
+
+  --color-gold: #ffbb01;
+  --color-gold-ink: #1a1300;
+
+  --color-clay: #c0532a;
+  --color-clay-soft: #f3e2d6;
+
+  --color-paper: #fbf8f1;
+  --color-paper-2: #f5f0e4;
+  --color-card: #ffffff;
+
+  --color-ink: #1e3033;
+  --color-ink-muted: #3d5457;
+  --color-ink-soft: #4a6265;
+  --color-on-dark: #a9c2c4;
+  --color-on-teal: #cfe8e9;
+  --color-on-teal-soft: #bfe0e1;
+  --color-footer-note: #6c8483;
 }
+
+/* Semantic surface tokens. Components reference these rather than a specific
+   brand colour, so dark mode is a redefinition here instead of a `dark:` class
+   on every element. */
+:root {
+  --background: #fbf8f1;
+  --foreground: #1e3033;
+
+  --surface: #ffffff;
+  --surface-2: #f5f0e4;
+  --surface-sunken: #fbf8f1;
+  --line: rgba(23, 108, 119, 0.14);
+  --line-strong: rgba(23, 108, 119, 0.28);
+  --text: #1e3033;
+  --text-muted: #3d5457;
+  --text-soft: #4a6265;
+  --brand: #176c77;
+  --brand-contrast: #ffffff;
+}
+
+/* Dark mode keeps the brand's teal-black rather than a neutral grey, so the
+   product still reads as Tracko with the lights off. Previously this was a
+   `@media (prefers-color-scheme: light)` block that set DARK values — inverted,
+   so light mode went black. */
+.dark {
+  --background: #0b1c1f;
+  --foreground: #e3eeef;
+
+  --surface: #10272b;
+  --surface-2: #0e2226;
+  --surface-sunken: #0b1c1f;
+  --line: rgba(169, 194, 196, 0.16);
+  --line-strong: rgba(169, 194, 196, 0.3);
+  --text: #e3eeef;
+  --text-muted: #a9c2c4;
+  --text-soft: #8fabad;
+  --brand: #2adadd;
+  --brand-contrast: #06181b;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
 
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-soft: var(--text-soft);
+  --color-brand: var(--brand);
+  --color-brand-contrast: var(--brand-contrast);
 }
 
 
@@ -85,6 +148,43 @@ body {
     font-family: 'Manrope', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+}
+
+/* This landing-page `body` rule wins over the one declared above it, so the
+   app shell has to be reasserted here rather than via --background alone. */
+body {
+    background: var(--background);
+    color: var(--foreground);
+}
+
+/* Native form controls and scrollbars follow the theme instead of staying
+   stubbornly light. */
+.dark {
+    color-scheme: dark;
+}
+
+/* Shared input styling for the auth screens. */
+.auth-input {
+    margin-top: 0.5rem;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.8rem 1rem;
+    font-size: 0.875rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input::placeholder {
+    color: var(--text-soft);
+    opacity: 0.7;
+}
+
+.auth-input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent);
 }
 
 a {

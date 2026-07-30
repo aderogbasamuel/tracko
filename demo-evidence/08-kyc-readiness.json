@@ -1,0 +1,23 @@
+{
+  "name": "08-kyc-readiness",
+  "capturedAt": "2026-07-30T18:19:49.488Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/kyc/readiness",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "ready": false,
+      "missing": [
+        "Address with country code is required",
+        "identificationDocuments",
+        "biometricDocuments"
+      ]
+    }
+  }
+}

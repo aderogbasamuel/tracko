@@ -1,0 +1,58 @@
+{
+  "name": "09-kyc-profile",
+  "capturedAt": "2026-07-30T18:19:49.754Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/kyc",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "kycProfileId": "8a679489-3d43-4ef3-a84a-ece18155c1f9",
+      "bkeyUserId": "9bef6906-7441-4544-90a1-6dd8c64121b8",
+      "status": "not_started",
+      "completedAt": null,
+      "profile": {
+        "initials": "S",
+        "displayName": "Samuel",
+        "displayImageUrl": null
+      },
+      "basicDetails": {
+        "status": "not_started",
+        "name": "Samuel",
+        "phoneNumber": "+2348146998074",
+        "emailAddress": "aderogbasamueladeolu@gmail.com"
+      },
+      "identityDetails": {
+        "status": "not_started",
+        "country": null,
+        "selectedId": null,
+        "upload": null,
+        "idNumber": null,
+        "bvn": null,
+        "nin": null
+      },
+      "addressDetails": {
+        "status": "not_started",
+        "country": null,
+        "state": null,
+        "postalCode": null,
+        "address": null,
+        "proofOfAddress": null,
+        "upload": null
+      },
+      "workDetails": {
+        "status": "not_started",
+        "employmentStatus": null,
+        "occupation": null,
+        "monthlySpend": null
+      },
+      "createdAt": "2026-07-29T23:28:46.265Z",
+      "updatedAt": "2026-07-29T23:28:46.417Z"
+    }
+  }
+}

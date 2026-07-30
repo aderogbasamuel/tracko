@@ -1,0 +1,22 @@
+{
+  "name": "03-onboarding-status",
+  "capturedAt": "2026-07-30T18:19:47.200Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/onboarding/status",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "anchorStatus": "not_started",
+      "bridgeStatus": "not_started",
+      "moneriumStatus": "not_started",
+      "paytrieStatus": "not_started",
+      "etherfuseStatus": "not_started"
+    }
+  }
+}

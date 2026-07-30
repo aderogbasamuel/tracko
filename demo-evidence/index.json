@@ -1,0 +1,66 @@
+{
+  "capturedAt": "2026-07-30T18:19:50.659Z",
+  "baseUrl": "https://embedded-dev.bmoni.com",
+  "calls": [
+    {
+      "name": "01-smart-wallets",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/smart-wallets/account/wallets",
+      "status": 200
+    },
+    {
+      "name": "02-balances",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/smart-wallets/account/balances",
+      "status": 200
+    },
+    {
+      "name": "03-onboarding-status",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/onboarding/status",
+      "status": 200
+    },
+    {
+      "name": "04-deposit-accounts-ngn",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts/deposit-accounts/NGN",
+      "status": 200
+    },
+    {
+      "name": "05-transactions",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/transactions/d5486925-8481-4164-8aff-951407c48047",
+      "status": 200
+    },
+    {
+      "name": "06-nigerian-banks",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts/nigerian-banks",
+      "status": 200
+    },
+    {
+      "name": "07-verify-nigerian-account",
+      "method": "POST",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts/verify-nigerian-account",
+      "status": 200
+    },
+    {
+      "name": "08-kyc-readiness",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/kyc/readiness",
+      "status": 200
+    },
+    {
+      "name": "09-kyc-profile",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/kyc",
+      "status": 200
+    },
+    {
+      "name": "10-bank-accounts-all",
+      "method": "GET",
+      "path": "/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts",
+      "status": 200
+    }
+  ]
+}

@@ -1,78 +1,101 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getStoredUser, clearStoredUser } from "../../lib/auth";
 import { useRouter } from "next/navigation";
+import { Icon } from "@iconify/react";
+import { getStoredUser, clearStoredUser, type AuthUser } from "../../lib/auth";
+import { useTheme } from "@/lib/use-theme";
+import OnboardingStatus from "../components/OnboardingStatus";
+import DashboardLayout from "../Wrapper";
 
 export default function SettingsPage() {
-  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
-  const [theme, setTheme] = useState("light");
+  const [user, setUser] = useState<AuthUser | null>(null);
+  // Shared hook rather than a second copy of the DOM logic — the sidebar toggle
+  // and this one used to keep separate state and drift out of sync.
+  const { theme, setTheme } = useTheme();
   const router = useRouter();
 
   useEffect(() => {
     setUser(getStoredUser());
-    const next = document.documentElement.classList.contains("dark") ? "dark" : "light";
-    setTheme(next);
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    if (next === "dark") document.documentElement.classList.add("dark");
-    else document.documentElement.classList.remove("dark");
-    setTheme(next);
-    localStorage.setItem("theme", next);
-  };
-
-  const handleLogout = () => {
+  function handleLogout() {
     clearStoredUser();
     setUser(null);
     router.push("/login");
-  };
+  }
 
   return (
-    <main className="min-h-screen bg-slate-50 py-16 px-4">
-      <div className="mx-auto max-w-3xl rounded-3xl bg-white p-10 shadow-lg shadow-slate-200/40">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-slate-900">Settings</h1>
-            <p className="mt-2 text-slate-500">Manage appearance and account preferences.</p>
+    <DashboardLayout title="Settings" subtitle="Appearance, account and payment rail.">
+      <div className="mx-auto max-w-3xl space-y-6 px-4 pt-6 sm:px-6">
+        <div className="rounded-3xl border border-line p-6">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-text-muted">
+            Appearance
+          </h2>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-surface-2 p-5">
+            <div>
+              <p className="font-semibold text-text">Theme</p>
+              <p className="text-sm text-text-muted">
+                Market stalls are bright; back rooms are not.
+              </p>
+            </div>
+
+            <div
+              role="radiogroup"
+              aria-label="Theme"
+              className="flex shrink-0 rounded-full border border-line bg-white p-1"
+            >
+              {(["light", "dark"] as const).map((option) => (
+                <button
+                  key={option}
+                  role="radio"
+                  aria-checked={theme === option}
+                  onClick={() => setTheme(option)}
+                  className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold capitalize transition ${
+                    theme === option
+                      ? "bg-cyan text-white shadow-sm"
+                      : "text-text-muted hover:text-text"
+                  }`}
+                >
+                  <Icon
+                    icon={option === "dark" ? "ph:moon-fill" : "ph:sun-fill"}
+                    width="14"
+                    height="14"
+                  />
+                  {option}
+                </button>
+              ))}
+            </div>
           </div>
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="rounded-2xl bg-[#2adadd] px-4 py-3 text-sm font-semibold text-white transition hover:brightness-105"
-          >
-            Log out
-          </button>
         </div>
 
-        <div className="mt-10 space-y-6">
-          <div className="rounded-3xl border border-slate-200 p-6">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Theme</h2>
-            <div className="mt-4 flex items-center justify-between gap-4 rounded-3xl bg-slate-50 p-5">
-              <div>
-                <p className="text-slate-900 font-semibold">Appearance</p>
-                <p className="text-sm text-slate-500">Switch between light and dark mode.</p>
-              </div>
+        <div className="rounded-3xl border border-line p-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-text-muted">
+                Account
+              </h2>
+              <p className="mt-3 font-medium text-text">
+                {user ? user.name : "Not signed in"}
+              </p>
+              <p className="text-sm text-text-muted">
+                {user ? user.email : "Log in to see your details."}
+              </p>
+            </div>
+            {user && (
               <button
                 type="button"
-                onClick={toggleTheme}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+                onClick={handleLogout}
+                className="shrink-0 rounded-2xl border border-line px-4 py-2.5 text-sm font-semibold text-text-muted transition hover:bg-surface-2"
               >
-                {theme === "dark" ? "Dark" : "Light"}
+                Log out
               </button>
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-slate-200 p-6">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Account</h2>
-            <div className="mt-4 text-slate-700">
-              <p>{user ? user.name : "Guest"}</p>
-              <p className="text-sm text-slate-500">{user ? user.email : "Not signed in"}</p>
-            </div>
+            )}
           </div>
         </div>
+
+        <OnboardingStatus />
       </div>
-    </main>
+    </DashboardLayout>
   );
 }

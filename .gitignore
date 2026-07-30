@@ -45,3 +45,6 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# Live BMONI call log (regenerated at runtime; curated evidence is committed)
+demo-evidence/live-calls.jsonl

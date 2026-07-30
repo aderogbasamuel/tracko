@@ -1,0 +1,24 @@
+{
+  "name": "07-verify-nigerian-account",
+  "capturedAt": "2026-07-30T18:19:48.614Z",
+  "request": {
+    "method": "POST",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/bank-accounts/verify-nigerian-account",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": {
+      "accountNumber": "0123456789",
+      "bankCode": "000013"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "accountNumber": "0123456789",
+      "accountName": "Obi Balogun",
+      "bankName": "GTBANK PLC",
+      "bankCode": "000013"
+    }
+  }
+}

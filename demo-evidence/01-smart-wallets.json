@@ -1,0 +1,28 @@
+{
+  "name": "01-smart-wallets",
+  "capturedAt": "2026-07-30T18:19:45.673Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/smart-wallets/account/wallets",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "id": "d5486925-8481-4164-8aff-951407c48047",
+        "currency": "NGN",
+        "walletAddress": "0xD2c817a09130c8b596B05adE3DC276C6C9c89fC4",
+        "isActive": true,
+        "pendingDeployUserOperation": null,
+        "deploySigningPayloadHash": null,
+        "createdByUserId": "9bef6906-7441-4544-90a1-6dd8c64121b8",
+        "createdAt": "2026-07-30T10:34:20.831Z",
+        "updatedAt": "2026-07-30T10:34:20.831Z"
+      }
+    ]
+  }
+}

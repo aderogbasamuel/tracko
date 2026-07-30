@@ -1,0 +1,24 @@
+{
+  "name": "05-transactions",
+  "capturedAt": "2026-07-30T18:19:47.747Z",
+  "request": {
+    "method": "GET",
+    "url": "https://embedded-dev.bmoni.com/v1/users/9bef6906-7441-4544-90a1-6dd8c64121b8/transactions/d5486925-8481-4164-8aff-951407c48047",
+    "headers": {
+      "x-api-key": "***REDACTED***"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "transactions": [],
+      "page": 1,
+      "perPage": 50,
+      "total": 0,
+      "pageCount": 0,
+      "hasNextPage": false,
+      "hasPreviousPage": false
+    }
+  }
+}

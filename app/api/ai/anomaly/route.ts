@@ -4,6 +4,7 @@ import { detectAnomalies } from "../../../../lib/anomaly";
 import { explainAnomaly } from "../../../../lib/ai";
 
 export async function GET() {
+  try {
   const orders = await prisma.order.findMany({
     orderBy: { createdAt: "desc" },
   });
@@ -30,5 +31,9 @@ export async function GET() {
       message: topAnomaly.detail,
       orderId: topAnomaly.order.id,
     });
+  }
+  } catch (err) {
+    console.error("anomaly error:", err);
+    return NextResponse.json({ hasAlert: false }, { status: 200 });
   }
 }
