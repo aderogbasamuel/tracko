@@ -47,7 +47,7 @@ export default function OrderForm({
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               required
-              className="w-full border rounded-md p-2 text-sm"
+              className="w-full border rounded-md p-2 text-sm capitalize"
             />
           </div>
           <div>
@@ -56,7 +56,7 @@ export default function OrderForm({
               value={customerPhone}
               onChange={(e) => setCustomerPhone(e.target.value)}
               required
-              className="w-full border rounded-md p-2 text-sm"
+              className="w-full border rounded-md p-2 text-sm capitalize"
               placeholder="+234..."
             />
           </div>
@@ -66,7 +66,7 @@ export default function OrderForm({
               value={item}
               onChange={(e) => setItem(e.target.value)}
               required
-              className="w-full border rounded-md p-2 text-sm"
+              className="w-full border rounded-md p-2 text-sm capitalize"
             />
           </div>
           <div>
@@ -76,7 +76,7 @@ export default function OrderForm({
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
-              className="w-full border rounded-md p-2 text-sm"
+              className="w-full border rounded-md p-2 text-sm capitalize"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function OrderForm({
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 bg-green-700 text-white py-2 rounded-md text-sm"
+              className="flex-1 bg-[#2adadd] text-white py-2 rounded-md text-sm"
             >
               {saving ? "Saving..." : "Save Order"}
             </button>

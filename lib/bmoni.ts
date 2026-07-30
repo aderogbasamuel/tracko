@@ -19,11 +19,13 @@ async function bmoniFetch(path: string, options: RequestInit = {}) {
 
 export async function getTraderTransactions() {
   const userId = process.env.BMONI_TRADER_USER_ID!;
-  return bmoniFetch(`/v1/users/${userId}/smart-wallets/account/transactions`);
+  const smartWalletId = process.env.BMONI_TRADER_SMART_WALLET_ID!;
+  return bmoniFetch(`/v1/users/${userId}/transactions/${smartWalletId}`);
+
 }
 
 export async function getTraderBalances() {
-  const userId = process.env.BMONI_TRADER_USER_ID!;
+  const userId = process.env.BMONI_TRADER_USER_ID!; // Debug log
   return bmoniFetch(`/v1/users/${userId}/smart-wallets/account/balances`);
 }
 
