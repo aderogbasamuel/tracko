@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import {
   getTraderWallets,
@@ -140,3 +142,4 @@ export async function GET() {
     { status: reachable ? 200 : 503 }
   );
 }
+

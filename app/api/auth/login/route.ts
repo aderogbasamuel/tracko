@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/db";
 import { verifyPassword } from "../../../../lib/crypto";
@@ -37,3 +39,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Could not sign you in." }, { status: 500 });
   }
 }
+

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "../../../lib/db";
 import { BmoniError, bmoniRequest } from "../../../lib/bmoni";
@@ -135,3 +137,4 @@ function handle(err: unknown, fallback: string) {
   const message = err instanceof Error ? err.message : fallback;
   return NextResponse.json({ error: message }, { status: 500 });
 }
+

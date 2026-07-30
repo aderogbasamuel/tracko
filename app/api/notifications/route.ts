@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { prisma } from "../../../lib/db";
 import { buildNotifications } from "../../../lib/notifications";
@@ -17,3 +19,4 @@ export async function GET() {
     return NextResponse.json({ error: "Could not load your alerts." }, { status: 500 });
   }
 }
+

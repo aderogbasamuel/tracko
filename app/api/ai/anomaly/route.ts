@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/db";
 import { detectAnomalies } from "../../../../lib/anomaly";
@@ -14,7 +16,7 @@ export async function GET() {
   if (anomalies.length === 0) {
     return NextResponse.json({ hasAlert: false });
   }
-
+  
   // Only explain the most recent/first anomaly to keep it fast + cheap
   const topAnomaly = anomalies[0];
   try {

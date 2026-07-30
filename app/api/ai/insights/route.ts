@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/db";
 import { generateInsights, AiError, type InsightsInput } from "../../../../lib/ai";
@@ -85,3 +87,4 @@ export async function GET() {
     return NextResponse.json({ error: "Could not work out your insights." }, { status: 500 });
   }
 }
+

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/db";
 import { hashPassword } from "../../../../lib/crypto";
@@ -61,3 +63,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Could not create your account." }, { status: 500 });
   }
 }
+

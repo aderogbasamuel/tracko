@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/db";
 import { composeDailySummary } from "../../../../lib/summary";
@@ -33,3 +35,4 @@ export async function GET() {
     return NextResponse.json({ error: "Could not build today's summary." }, { status: 500 });
   }
 }
+
