@@ -32,10 +32,6 @@ body {
 }
 
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* ==========================================================================
    Tracko — landing page
    Palette: BMONI teal + market gold, warmed with clay; adire-inspired patterns.
