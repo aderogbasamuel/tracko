@@ -1,0 +1,20 @@
+{
+    "user": {
+        "id": "343d7ac0-ef72-47f0-8d1b-cb5b7df07521",
+        "partnerName": "BMONI Hackathon",
+        "employeeId": null,
+        "identityId": null,
+        "bmoniUserId": "9bef6906-7441-4544-90a1-6dd8c64121b8",
+        "firstName": "Samuel",
+        "lastName": "",
+        "middleName": "",
+        "email": "aderogbasamueladeolu@gmail.com",
+        "phoneNumber": "+2348146998074",
+        "employerName": "",
+        "occupation": "",
+        "monthlySalary": "",
+        "linkedAt": null,
+        "createdAt": "2026-07-29T23:28:46.451Z",
+        "updatedAt": "2026-07-29T23:28:46.451Z"
+    }
+}
